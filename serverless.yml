@@ -1,13 +1,12 @@
 
-service:
-  name: serverless-auth0-authorizer
+service: sls-auctions-auth0-authorizer
 
 plugins:
   - serverless-bundle
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs18.x
   memorySize: 128
   region: us-east-1
   environment:
@@ -16,7 +15,6 @@ provider:
 functions:
   auth:
     handler: src/handlers/auth.handler
-    cors: true
   publicEndpoint:
     handler: src/handlers/public.handler
     events:
